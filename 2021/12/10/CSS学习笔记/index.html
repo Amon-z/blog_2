@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="凡心所向，素履以往。生如逆旅，一苇以航。">
+    <meta name="author" content="Amon">
+    
+    <title>
+        
+            CSS学习笔记 |
+        
+        Amon&#39; Blog.
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo2.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"b.pangmu.xyz","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo2.svg","favicon":"/images/logo2.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Amon&#39; Blog.
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">CSS学习笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo2.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Amon</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-12-10 22:45:43</span>
+        <span class="mobile">2021-12-10 22:45</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Web%E5%BC%80%E5%8F%91/">Web开发</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CSS/">CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>学习CSS时做的笔记，方便复习。</p>
+<span id="more"></span>
+
+<h1 id="CSS学习笔记"><a href="#CSS学习笔记" class="headerlink" title="CSS学习笔记"></a>CSS学习笔记</h1><h2 id="01-CSS的声明"><a href="#01-CSS的声明" class="headerlink" title="01.CSS的声明"></a>01.CSS的声明</h2><ul>
+<li><p>一、在head标签中使用style标签声明：此声明一般声明当前网页的公共样式或者给某个标签的单独样式</p>
+</li>
+<li><p>二、在标签上使用style属性进行声明：此声明会将CSS样式直接作用于当前标签。</p>
+</li>
+<li><p>三、在head标签中使用link标签引入外部声明好的CSS文件：此声明相当于调用,解决了不同网页间样式重复使用的问题，一次声明，随处使用。</p>
+</li>
+<li><p>注意：不同的声明给同一个标签操作了同一个样式，如果Css的声明全部在head标签中，则遵循就近原则，谁离标签近，谁就会被显示。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    hr&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span> <span class="attr">style</span>=<span class="string">&quot;background-color: blue;height: 50px;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;css/my.css&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="02、CSS的选择器学习"><a href="#02、CSS的选择器学习" class="headerlink" title="02、CSS的选择器学习"></a>02、CSS的选择器学习</h2><p>CSS选择器</p>
+<ul>
+<li><p>标签选择器</p>
+<ul>
+<li>标签名{样式名1:样式值1;…..}</li>
+<li>作用：会将当前网页内的所有该标签增加相同的样式。</li>
+</ul>
+</li>
+<li><p>id选择器</p>
+<ul>
+<li>#标签的id属性值{样式名1:样式值1;……}</li>
+<li>作用：给某个指定的标签添加指定的样式。</li>
+</ul>
+</li>
+<li><p>类选择器</p>
+<ul>
+<li>.类选择器名{样式名1:样式值1;……}</li>
+<li>作用：给不同的标签添加相同的样式。</li>
+</ul>
+</li>
+<li><p>全部选择选择器</p>
+<ul>
+<li><p>*{样式名1:样式值1;……}</p>
+</li>
+<li><p>作用：选择所有的HTML标签，并添加相同的样式。</p>
+</li>
+</ul>
+</li>
+<li><p>组合选择器</p>
+<ul>
+<li><p>选择器1,选择器2,……{样式名1：样式值1;……}</p>
+</li>
+<li><p>作用：解决不同的选择器之间重复样式的问题。</p>
+</li>
+</ul>
+</li>
+<li><p>子标签选择器</p>
+<ul>
+<li>选择器1 子标签选择器{样式名1：样式值1;……}</li>
+</ul>
+</li>
+<li><p>属性选择器</p>
+<ul>
+<li><p>标签名[属性名=属性值]{样式名1：样式值1;……}</p>
+</li>
+<li><p>作用：选择某标签指定具备某属性并且属性值为某属性值的标签。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="03、CSS盒子模型"><a href="#03、CSS盒子模型" class="headerlink" title="03、CSS盒子模型"></a>03、CSS盒子模型</h2><ul>
+<li><p>div标签</p>
+<ul>
+<li><p>块级标签，主要是用来进行网页布局的，会将其中的子元素内容作为一个独立的整体存在。</p>
+</li>
+<li><p>特点：默认宽度是页面的宽度，但是可以设置。高度默认是没有的，但是可以设置(可以顶开)。如果子元素设置了百分比的高或者宽，占据的是div的百分比，不是页面的。</p>
+</li>
+</ul>
+</li>
+<li><p>盒子模型</p>
+<ul>
+<li><p>外边距：margin</p>
+<ul>
+<li><p>作用：用来设置元素和元素之间的间隔。</p>
+</li>
+<li><p>居中设置：margin:0px auto;上下间隔是0px,水平居中。</p>
+</li>
+<li><p>可以根据需求单独的设置上下左右的外边距。</p>
+</li>
+</ul>
+</li>
+<li><p>边框：border</p>
+</li>
+<li><p>内边距：padding</p>
+<ul>
+<li><p>作用：设置内容和边框之间的距离</p>
+</li>
+<li><p>注意：内边距不会改变内容区域的大小</p>
+</li>
+</ul>
+</li>
+<li><p>内容区域</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="04、CSS定位"><a href="#04、CSS定位" class="headerlink" title="04、CSS定位"></a>04、CSS定位</h2><ul>
+<li><p>position：</p>
+<ul>
+<li><p>相对定位：relatiive</p>
+<ul>
+<li><p>作用：相对元素原有位置移动指定的距离(相对的自己的原有位置)，可以使用top,left,right,bottom来进行设置。</p>
+</li>
+<li><p>注意：其他元素的位置是不改变的。</p>
+</li>
+</ul>
+</li>
+<li><p>绝对定位：absolute</p>
+<ul>
+<li><p>作用：可以使用元素参照界面或者相对父元素来进行移动</p>
+</li>
+<li><p>注意：如果父级元素成为参照元素，必须使用相对定位属性。默认情况下是以界面为基准进行移动的。</p>
+</li>
+</ul>
+</li>
+<li><p>固定定位：fixed</p>
+<ul>
+<li>作用：将元素固定现在页面的指定位置，不会随着滚动条的移动而改变位置。</li>
+</ul>
+</li>
+<li><p>以上定位都可以使用top,left,right,bottom来进行移动。</p>
+</li>
+</ul>
+</li>
+<li><p>z-index：此属性是用来声明元素的显示级别的。</p>
+</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/CSS/">#CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/12/15/CSS-div%E4%B8%8A%E4%B8%8B%E5%B1%85%E4%B8%AD/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">CSS div上下居中</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/12/10/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">HTML学习笔记</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Amon</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

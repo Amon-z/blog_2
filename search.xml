@@ -1,6 +1,441 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSS div上下居中</title>
+    <url>/2021/12/15/CSS-div%E4%B8%8A%E4%B8%8B%E5%B1%85%E4%B8%AD/</url>
+    <content><![CDATA[<p>CSS div上下居中</p>
+<span id="more"></span>
+
+<h2 id="一、varticle-align"><a href="#一、varticle-align" class="headerlink" title="一、varticle-align"></a>一、varticle-align</h2><p>(1) 父div外层配置一个div，同时设置为表格元素 (display: table)，设置宽度。</p>
+<p>(2) 父div配置为表格单元格元素 (display: table-cell)，宽度为100%，设置高度。</p>
+<p>(3) 父div配置居中属性（vertical-align: middle），使子div上下居中。</p>
+<p>(4) 子div通过margin配置左右居中（margin: auto）。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.table</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: table; </span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box1</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: table-cell; </span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">vertical-align</span>: middle;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: solid <span class="number">2px</span> red;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box2</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;table&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Web开发</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS学习笔记</title>
+    <url>/2021/12/10/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>学习CSS时做的笔记，方便复习。</p>
+<span id="more"></span>
+
+<h1 id="CSS学习笔记"><a href="#CSS学习笔记" class="headerlink" title="CSS学习笔记"></a>CSS学习笔记</h1><h2 id="01-CSS的声明"><a href="#01-CSS的声明" class="headerlink" title="01.CSS的声明"></a>01.CSS的声明</h2><ul>
+<li><p>一、在head标签中使用style标签声明：此声明一般声明当前网页的公共样式或者给某个标签的单独样式</p>
+</li>
+<li><p>二、在标签上使用style属性进行声明：此声明会将CSS样式直接作用于当前标签。</p>
+</li>
+<li><p>三、在head标签中使用link标签引入外部声明好的CSS文件：此声明相当于调用,解决了不同网页间样式重复使用的问题，一次声明，随处使用。</p>
+</li>
+<li><p>注意：不同的声明给同一个标签操作了同一个样式，如果Css的声明全部在head标签中，则遵循就近原则，谁离标签近，谁就会被显示。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    hr&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span> <span class="attr">style</span>=<span class="string">&quot;background-color: blue;height: 50px;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;css/my.css&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="02、CSS的选择器学习"><a href="#02、CSS的选择器学习" class="headerlink" title="02、CSS的选择器学习"></a>02、CSS的选择器学习</h2><p>CSS选择器</p>
+<ul>
+<li><p>标签选择器</p>
+<ul>
+<li>标签名{样式名1:样式值1;…..}</li>
+<li>作用：会将当前网页内的所有该标签增加相同的样式。</li>
+</ul>
+</li>
+<li><p>id选择器</p>
+<ul>
+<li>#标签的id属性值{样式名1:样式值1;……}</li>
+<li>作用：给某个指定的标签添加指定的样式。</li>
+</ul>
+</li>
+<li><p>类选择器</p>
+<ul>
+<li>.类选择器名{样式名1:样式值1;……}</li>
+<li>作用：给不同的标签添加相同的样式。</li>
+</ul>
+</li>
+<li><p>全部选择选择器</p>
+<ul>
+<li><p>*{样式名1:样式值1;……}</p>
+</li>
+<li><p>作用：选择所有的HTML标签，并添加相同的样式。</p>
+</li>
+</ul>
+</li>
+<li><p>组合选择器</p>
+<ul>
+<li><p>选择器1,选择器2,……{样式名1：样式值1;……}</p>
+</li>
+<li><p>作用：解决不同的选择器之间重复样式的问题。</p>
+</li>
+</ul>
+</li>
+<li><p>子标签选择器</p>
+<ul>
+<li>选择器1 子标签选择器{样式名1：样式值1;……}</li>
+</ul>
+</li>
+<li><p>属性选择器</p>
+<ul>
+<li><p>标签名[属性名=属性值]{样式名1：样式值1;……}</p>
+</li>
+<li><p>作用：选择某标签指定具备某属性并且属性值为某属性值的标签。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="03、CSS盒子模型"><a href="#03、CSS盒子模型" class="headerlink" title="03、CSS盒子模型"></a>03、CSS盒子模型</h2><ul>
+<li><p>div标签</p>
+<ul>
+<li><p>块级标签，主要是用来进行网页布局的，会将其中的子元素内容作为一个独立的整体存在。</p>
+</li>
+<li><p>特点：默认宽度是页面的宽度，但是可以设置。高度默认是没有的，但是可以设置(可以顶开)。如果子元素设置了百分比的高或者宽，占据的是div的百分比，不是页面的。</p>
+</li>
+</ul>
+</li>
+<li><p>盒子模型</p>
+<ul>
+<li><p>外边距：margin</p>
+<ul>
+<li><p>作用：用来设置元素和元素之间的间隔。</p>
+</li>
+<li><p>居中设置：margin:0px auto;上下间隔是0px,水平居中。</p>
+</li>
+<li><p>可以根据需求单独的设置上下左右的外边距。</p>
+</li>
+</ul>
+</li>
+<li><p>边框：border</p>
+</li>
+<li><p>内边距：padding</p>
+<ul>
+<li><p>作用：设置内容和边框之间的距离</p>
+</li>
+<li><p>注意：内边距不会改变内容区域的大小</p>
+</li>
+</ul>
+</li>
+<li><p>内容区域</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="04、CSS定位"><a href="#04、CSS定位" class="headerlink" title="04、CSS定位"></a>04、CSS定位</h2><ul>
+<li><p>position：</p>
+<ul>
+<li><p>相对定位：relatiive</p>
+<ul>
+<li><p>作用：相对元素原有位置移动指定的距离(相对的自己的原有位置)，可以使用top,left,right,bottom来进行设置。</p>
+</li>
+<li><p>注意：其他元素的位置是不改变的。</p>
+</li>
+</ul>
+</li>
+<li><p>绝对定位：absolute</p>
+<ul>
+<li><p>作用：可以使用元素参照界面或者相对父元素来进行移动</p>
+</li>
+<li><p>注意：如果父级元素成为参照元素，必须使用相对定位属性。默认情况下是以界面为基准进行移动的。</p>
+</li>
+</ul>
+</li>
+<li><p>固定定位：fixed</p>
+<ul>
+<li>作用：将元素固定现在页面的指定位置，不会随着滚动条的移动而改变位置。</li>
+</ul>
+</li>
+<li><p>以上定位都可以使用top,left,right,bottom来进行移动。</p>
+</li>
+</ul>
+</li>
+<li><p>z-index：此属性是用来声明元素的显示级别的。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Web开发</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML学习笔记</title>
+    <url>/2021/12/10/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>学习HTML时做的笔记，方便复习。</p>
+<span id="more"></span>
+
+<h2 id="HTML学习笔记"><a href="#HTML学习笔记" class="headerlink" title="HTML学习笔记"></a>HTML学习笔记</h2><h3 id="01-HTML文档的标准结构"><a href="#01-HTML文档的标准结构" class="headerlink" title="01.HTML文档的标准结构"></a>01.HTML文档的标准结构</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        This is my first html.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="02-head标签学习"><a href="#02-head标签学习" class="headerlink" title="02.head标签学习"></a>02.head标签学习</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span> <span class="comment">&lt;!--网页解析编码格式配置(HTML5)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span> <span class="comment">&lt;!--网页标题标签--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;HTML&quot;</span>/&gt;</span> <span class="comment">&lt;!--网页关键字--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;描述。&quot;</span>/&gt;</span> <span class="comment">&lt;!--网页描述--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;作者&quot;</span>/&gt;</span> <span class="comment">&lt;!--网页作者--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;5;url=http://www.google.com&quot;</span>/&gt;</span> <span class="comment">&lt;!--网页自动跳转--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="03-body标签-文本标签"><a href="#03-body标签-文本标签" class="headerlink" title="03.body标签(文本标签)"></a>03.body标签(文本标签)</h2><ul>
+<li><p>标题标签</p>
+<ul>
+<li><p><strong>h1 - h6</strong>  六级标题</p>
+</li>
+<li><p>属性： align: center  left  right 居中/左/右对齐</p>
+</li>
+</ul>
+</li>
+<li><p>水平线标签</p>
+<ul>
+<li><p><strong>hr</strong></p>
+</li>
+<li><p>属性：width 宽度  size 高度  color 颜色</p>
+</li>
+</ul>
+</li>
+<li><p>段落标签</p>
+<ul>
+<li><strong>p</strong> </li>
+<li>会将一段数据作为整体进行显示，主要是进行css和js操作时比较方便.会自动换行(块`级元素)</li>
+<li>特点：段间距比较大</li>
+</ul>
+</li>
+<li><p>换行符</p>
+<ul>
+<li><strong>br</strong>  告诉浏览器需要在此换行</li>
+</ul>
+</li>
+<li><p>空格符</p>
+<ul>
+<li><strong>&amp;nbsp</strong></li>
+</ul>
+</li>
+<li><p>权重标签</p>
+<ul>
+<li><p><strong>b</strong>  会将内容加黑显示</p>
+</li>
+<li><p><strong>i</strong>  会将内容斜体显示</p>
+</li>
+<li><p><strong>u</strong>  会将内容增加下划线</p>
+</li>
+<li><p><strong>del</strong>  增加中划线</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="04-body标签-列表标签"><a href="#04-body标签-列表标签" class="headerlink" title="04.body标签(列表标签)"></a>04.body标签(列表标签)</h2><ul>
+<li>无序列表</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>有序列表</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;I&quot;</span>&gt;</span>  <span class="comment">&lt;!--可以改变顺序编码的值,可以是1 a A I--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>打游戏<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>打篮球<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>看电影<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自定义列表</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>数据的标题<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>内容1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>内容2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>内容3<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="05-图片标签学习"><a href="#05-图片标签学习" class="headerlink" title="05.图片标签学习"></a>05.图片标签学习</h2><p>本地资源/网络资源</p>
+<p>相对路径/绝对路径</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./1.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100px&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;加载失败&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="06-超链接标签"><a href="#06-超链接标签" class="headerlink" title="06.超链接标签"></a>06.超链接标签</h2><p>超链接</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>谷歌搜索<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>属性：target<ul>
+<li><p>_self   在当前页中刷新显示</p>
+</li>
+<li><p>_blank  在新的标签页中显示</p>
+</li>
+<li><p>_top    在顶层页面中显示</p>
+</li>
+<li><p>_parent    在父级页面中显示</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>锚点</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">&quot;锚点名&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>/&gt;</span> <span class="comment">&lt;!--锚点--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#锚点名&quot;</span>&gt;</span>点击跳转<span class="tag">&lt;<span class="name">a</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="07-表格标签"><a href="#07-表格标签" class="headerlink" title="07.表格标签"></a>07.表格标签</h2><ul>
+<li>table  tr  th<ul>
+<li><p>属性：width  height  border  cellpadding  cellspacing</p>
+</li>
+<li><p>单元格合并：rowspan colspan</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="08-iframe标签"><a href="#08-iframe标签" class="headerlink" title="08.iframe标签"></a>08.iframe标签</h2><ul>
+<li>iframe<ul>
+<li><p>属性：src  width height  name(结合超链接标签的target使用)</p>
+</li>
+<li><p>作用：在当前网页中加载其他网页的资源,达到不同网页资源之间不相互干扰,并能在同一个页面中展现给用户的目的。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="09-frameset标签"><a href="#09-frameset标签" class="headerlink" title="09.frameset标签"></a>09.frameset标签</h2><ul>
+<li>frameset<ul>
+<li><p>rows=”30%,*,30%”  按照行进行切分页面</p>
+</li>
+<li><p>cols：按照列进行切分页面</p>
+</li>
+<li><p>子标签：frame</p>
+<ul>
+<li><p>src：资源路径</p>
+</li>
+<li><p>name：区域名，结合超链接使用</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-form标签"><a href="#10-form标签" class="headerlink" title="10.form标签"></a>10.form标签</h2><ul>
+<li><p>form表单标签</p>
+<ul>
+<li><p>作用：收集并提交用户数据给指定服务器</p>
+</li>
+<li><p>属性：</p>
+<ul>
+<li><p>action：收集的数据提交地址也就是URL</p>
+</li>
+<li><p>method：get/post  收集的数据的提交方式  </p>
+</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li><p>表单数据的提交,要提交的表单项必须拥有name属性值,否则不会提交。</p>
+</li>
+<li><p>提交的表单项数据为键值对,键为name属性的值,值为用户书写的数据。</p>
+</li>
+<li><p>form标签会收集其标签内部的数据。</p>
+</li>
+<li><p>form表单的数据提交需要依赖于submit提交按钮。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>form表单域标签</p>
+<ul>
+<li><p>文本框：input</p>
+<ul>
+<li><p>type：</p>
+<ul>
+<li><p>text 收集少量的文本数据,用户可见</p>
+</li>
+<li><p>password 收集用户密码数据</p>
+</li>
+</ul>
+</li>
+<li><p>name：数据提交的键，也会被js使用</p>
+</li>
+<li><p>value：默认值</p>
+</li>
+</ul>
+</li>
+<li><p>单选框：input</p>
+<ul>
+<li><p>type：radio</p>
+</li>
+<li><p>name：name属性值相同的单选框只能选择一项数据</p>
+</li>
+<li><p>value：要提交的数据</p>
+</li>
+<li><p>checked:  使用此属性的单选默认是选择状态</p>
+</li>
+</ul>
+</li>
+<li><p>多选框：input</p>
+<ul>
+<li><p>type：checkbox</p>
+</li>
+<li><p>name：一个多选组需要使用相同的name属性值</p>
+</li>
+<li><p>value：要提交的数据</p>
+</li>
+<li><p>checked:checked  使用此属性的多选框默认是选择状态</p>
+</li>
+</ul>
+</li>
+<li><p>单选下拉框：select</p>
+<ul>
+<li><p>name：数据提交的键名,必须声明</p>
+</li>
+<li><p>子标签option：一个option标签表示一个下拉选项</p>
+<ul>
+<li>value：要提交的数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文本域：textarea</p>
+<ul>
+<li><p>name：数据提交的键名,js和css也会使用</p>
+</li>
+<li><p>rows：声明文本域的行数</p>
+</li>
+<li><p>cols：声明文本域的列数</p>
+</li>
+</ul>
+</li>
+<li><p>普通按钮：input</p>
+<ul>
+<li><p>type：button</p>
+</li>
+<li><p>value</p>
+</li>
+</ul>
+</li>
+<li><p>普通按钮：input</p>
+<ul>
+<li><p>type：hidden</p>
+</li>
+<li><p>name</p>
+</li>
+<li><p>value</p>
+</li>
+</ul>
+</li>
+<li><p>submit按钮：input</p>
+<ul>
+<li><p>type:  submit</p>
+</li>
+<li><p>vaule</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>form表单标签的使用：在点击数据提交时,form标签会将其内部所有form表单域标签中用户书写的数据按照method指明的提交方式提交给action属性所指明的提交地址。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Web开发</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js学习笔记</title>
+    <url>/2021/12/15/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>学习javascript时做的笔记，方便自己复习。</p>
+<span id="more"></span>
+
+<h1 id="js学习笔记"><a href="#js学习笔记" class="headerlink" title="js学习笔记"></a>js学习笔记</h1>]]></content>
+      <categories>
+        <category>Web开发</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Apache学习笔记</title>
     <url>/2022/01/05/Apache%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>学习Linux Apache服务做的笔记，方便自己查阅与复习。</p>
