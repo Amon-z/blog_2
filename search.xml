@@ -553,4 +553,51 @@
         <tag>Vsftpd</tag>
       </tags>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2022/06/16/BIND%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="使用BIND提供域名解析服务"><a href="#使用BIND提供域名解析服务" class="headerlink" title="使用BIND提供域名解析服务"></a>使用BIND提供域名解析服务</h1><h2 id="DNS域名解析服务"><a href="#DNS域名解析服务" class="headerlink" title="DNS域名解析服务"></a>DNS域名解析服务</h2><p>正向解析：将域名解析为IP地址。</p>
+<p>反向解析：将IP地址解析为域名。</p>
+<p><img src="/2022/06/16/BIND%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Users\Amu\AppData\Roaming\marktext\images\2022-01-04-13-47-53-image.png"></p>
+<p>主服务器：在特定区域内具有唯一性，负责维护该区域内的域名与 IP 地址之间的对应关系</p>
+<p>从服务器：从主服务器中获得域名与 IP 地址的对应关系并进行维护，以防主服务器宕机等情况。</p>
+<p>缓存服务器：通过向其他域名解析服务器查询获得域名与 IP 地址的对应关系，并将经常查询的域名信息保存到服务器本地，以此来提高重复查询时的效率。</p>
+<p>递归查询，是指 DNS 服务器在收到用户发起的请求时，必须向用户返回一个准确的查询结果。如果 DNS 服务器本地没有存储与之对应的信息，则该服务器需要询问其他服务器，并将返回的查询结果提交给用户。</p>
+<p>迭代查询则，是指DNS 服务器在收到用户发起的请求时，并不直接回复查询结果，而是告诉另一台 DNS 服务器的地址，用户再向这台 DNS 服务器提交请求，这样依次反复，直到返回查询结果。</p>
+<h2 id="安装bind服务程序"><a href="#安装bind服务程序" class="headerlink" title="安装bind服务程序"></a>安装bind服务程序</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ yum install bind-chroot</span><br></pre></td></tr></table></figure>
+
+<p>建议在生产环境中安装部署 bind 服务程序时加上 chroot（俗称牢笼机制）扩展包，以便有效地限制 bind 服务程序仅能对自身的配置文件进行操作，以确保整个服务器的安全。</p>
+<p>配置文件：</p>
+<p>    主配置文件     /etc/named.conf    用来定义 bind 服务程序的运行。</p>
+<p>    区域配置文件    /etc/named.rfc1912.zones    保存域名和 IP 地址对应关系的所在位置。</p>
+<p>    数据配置文件目录    /var/named    保存域名和 IP 地址真实对应关系的数据配置文件。</p>
+<p>修改配置文件/etc/named.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vim /etc/named.conf</span><br><span class="line">    listen-on port 53 &#123; any; &#125;;    //服务器上的所有IP地址均可提供DNS域名解析服务</span><br><span class="line">    .....</span><br><span class="line">    allow-query &#123; any; &#125;;    //允许所有人对本服务器发送 DNS 查询请求</span><br></pre></td></tr></table></figure>
+
+<h2 id="正向解析实验"><a href="#正向解析实验" class="headerlink" title="正向解析实验"></a>正向解析实验</h2><p>编辑配置文件/etc/named.rfg1912.zones</p>
+<p>服务类型有三种：hint（根区域）、master（主区域）、slave（辅助区域），其中master和slave就是主服务器和从服务器。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vim /etc/named.rfg1912.zones</span><br><span class="line">    zone &quot;amonlinux.com&quot; IN &#123;</span><br><span class="line">        type master;</span><br><span class="line">        file &quot;amonlinux.com.zone&quot;;</span><br><span class="line">        allow-update &#123;none;&#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>编辑数据配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ cd /var/mamed/</span><br><span class="line">$ cp -a named.localhost amonlinux.com.zone    //a参数可以保留原始文件的所有者、所属组、权限属性等星系</span><br><span class="line">$ vim amonlinux.com.zone</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/16/BIND%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Users\Amu\AppData\Roaming\marktext\images\2022-01-04-14-34-09-image.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vim /etc/sysconfig/network-scripts/ifcfg-ens33    </span><br><span class="line">    DNS1=127.0.0.1</span><br><span class="line">$ systemctl restart network    //重启网络</span><br><span class="line">$ systemctl restart named    //重启bind</span><br></pre></td></tr></table></figure>
+
+<p>named-checkconf    检查主配置文件语法或参数的错误。</p>
+<p>named-checkzone    检查数据配置文件语法或参数的错误。</p>
+<p>nslookup    检测能否从犯DNS服务器中查询到域名与IP地址的解析记录。</p>
+<h2 id="反向解析实验"><a href="#反向解析实验" class="headerlink" title="反向解析实验"></a>反向解析实验</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vim /etc/named.rfc1912.zones    //编辑区域配置文件</span><br><span class="line">    zone &quot;10.168.192.in-addr.arpa&quot; IN &#123;    //IP倒序写</span><br><span class="line">        type master;</span><br><span class="line">        file &quot;192.168.10.arpa&quot;;</span><br><span class="line">    &#125;;</span><br><span class="line">$ cp -a /var/named named.loopback 192.168.10.arpa    //复制一份模板</span><br><span class="line">$ vim 192.168.10.arpa    //编辑数据配置文件</span><br><span class="line">$ systemctl restart named</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/16/BIND%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Users\Amu\AppData\Roaming\marktext\images\2022-01-04-14-49-15-image.png"></p>
+<p>nslookup   检验解析结果。</p>
+<h2 id="部署从服务器"><a href="#部署从服务器" class="headerlink" title="部署从服务器"></a>部署从服务器</h2><p>在主服务器的区域配置文件中允许该从服务器的更新请求，即修改 allow-update。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vim /etc/named.rfc1912.zones</span><br><span class="line">    zone &quot;amonlinux.com&quot; IN &#123; </span><br><span class="line">        type master; </span><br><span class="line">        file &quot;amonlinux.com.zone&quot;; </span><br><span class="line">        allow-update &#123; 192.168.10.12; &#125;;  //从服务器的ip地址为192.168.10.12</span><br><span class="line">    &#125;; </span><br><span class="line">    zone &quot;10.168.192.in-addr.arpa&quot; IN &#123; </span><br><span class="line">        type master; </span><br><span class="line">        file &quot;192.168.10.arpa&quot;; </span><br><span class="line">        allow-update &#123; 192.168.10.12; &#125;; </span><br><span class="line">    &#125;;</span><br><span class="line">$ systemctl restart named</span><br></pre></td></tr></table></figure>
+
+<p>在从服务器中填写主服务器的 IP 地址与要抓取的区域信息，然后重启服务。注意此时的服务类型应该是 slave（从），而不再是 master（主）。masters 参数后面应该为主服务器的 IP 地址，而且 file 参数后面定义的是同步数据配置文件后要保存到的位置，稍后可以在该目录内看到同步的文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vim /etc/named.rfc1912.zones</span><br><span class="line">    zone &quot;amonlinuxe.com&quot; IN &#123;</span><br><span class="line">        type slave;</span><br><span class="line">        masters &#123; 192.168.10.11; &#125;;    //主服务器的ip地址为192.168.10.11</span><br><span class="line">        file &quot;slaves/amonlinux.com.zone&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    zone &quot;10.168.192.in-addr.arpa&quot; IN &#123;</span><br><span class="line">        type slave;</span><br><span class="line">        masters &#123; 192.168.10.11; &#125;;</span><br><span class="line">        file &quot;slaves/192.168.10.arpa&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">$ systecmtl restart named</span><br></pre></td></tr></table></figure>
+
+<p>nslookup  检验解析结果。</p>
+<h2 id="安全的加密传输"><a href="#安全的加密传输" class="headerlink" title="安全的加密传输"></a>安全的加密传输</h2><h2 id="部署缓存服务器"><a href="#部署缓存服务器" class="headerlink" title="部署缓存服务器"></a>部署缓存服务器</h2><h2 id="分离解析技术"><a href="#分离解析技术" class="headerlink" title="分离解析技术"></a>分离解析技术</h2>]]></content>
+  </entry>
 </search>
